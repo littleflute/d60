@@ -1,1 +1,42 @@
-
+<!DOCTYPE html>	  
+<html>  
+<body> 
+v1.3 
+<br> 
+<div id="DivCurTime"></div> 
+<br> 
+<button onclick="getCurTime()" type="button">Get current time position</button>  
+<button onclick="setCurTime(0)" type="button">00</button><br>   
+<button onclick="moveMS(-0.05)" type="button">Time-50ms</button>  
+<button onclick="moveMS(-0.01)" type="button">-10ms</button>  
+<button onclick="moveMS(0.01)" type="button">+10ms</button>  
+<button onclick="moveMS(0.05)" type="button">+50ms</button>  
+<button onclick="setCurTime(5)" type="button">Set time position to 5 seconds</button><br>   
+<button onclick="play('1=00_00_00-01_40_00.mp3')">1=00_00_00-01_40_00.mp3</button> 
+<button onclick="play('1=01_00_00-02_30_00.mp3')">1=01_00_00-02_30_00.mp3</button> 
+<button onclick="play('1=02_00_00-.mp3')">1=02_00_00-.mp3</button> 
+<br> 
+<audio id="myPlayer" width="720" height="480" controls> 
+ <source src="0.mp3" type="video/mp4">  
+Your browser does not support HTML5 audio. 
+</audio>  
+<script>  
+var vid = document.getElementById("myPlayer"); 
+function play(fileName) {
+    myPlayer.src=fileName; 
+    myPlayer.load();
+    myPlayer.play(); 
+}
+function getCurTime() {  
+   document.getElementById("DivCurTime").innerHTML= vid.currentTime; 
+}   
+function setCurTime(t) { 
+   vid.currentTime=t;  
+   getCurTime();
+}  
+function moveMS(ms) { 
+  vid.currentTime+=ms;
+  getCurTime();  
+}   
+</script> 
+</body> 
